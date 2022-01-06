@@ -15,8 +15,8 @@ def main():
     count=0
 
     while not rospy.is_shutdown():
-        marker_array=MarkerArray()
-        count+=0.1
+        marker_array = MarkerArray()
+        count += 0.1
         marker = Marker()
 
         marker.header = Header(stamp=rospy.Time.now(), frame_id='world')
