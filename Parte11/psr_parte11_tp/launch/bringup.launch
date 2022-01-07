@@ -1,0 +1,34 @@
+<launch>
+
+    <!--    Sun to mercury -->
+    <node name="sun_to_mercury" pkg="psr_parte11_tp" type="ex3.py" output="screen">
+        <remap from="parent" to="sun"/>
+        <remap from="child" to="mercury"/>
+        <param name="distance_to_parent"  value="0.387" />
+        <param name="period"  value="0.241" />
+    </node>
+
+    <!--    Sun to venus -->
+    <node name="sun_to_venus" pkg="psr_parte11_tp" type="ex3.py" output="screen">
+        <remap from="parent" to="sun"/>
+        <remap from="child" to="venus"/>
+        <param name="distance_to_parent"  value="0.723" />
+        <param name="period"  value="0.605" />
+    </node>
+
+    <!--    Sun to earth -->
+    <node name="sun_to_earth" pkg="psr_parte11_tp" type="ex3.py" output="screen">
+        <remap from="parent" to="sun"/>
+        <remap from="child" to="earth"/>
+        <param name="distance_to_parent"  value="1" />
+        <param name="period"  value="1" />
+    </node>
+
+    <!--    earth to moon -->
+    <node name="earth_to_moon" pkg="psr_parte11_tp" type="ex3.py" output="screen">
+        <remap from="parent" to="earth"/>
+        <remap from="child" to="moon"/>
+        <param name="distance_to_parent"  value="0.2" />
+        <param name="period"  value="0.07" />
+    </node>
+</launch>
