@@ -1,5 +1,4 @@
 <launch>
-
     <!--    Sun to mercury -->
     <node name="sun_to_mercury" pkg="psr_parte11_tp" type="ex3.py" output="screen">
         <remap from="parent" to="sun"/>
@@ -29,6 +28,6 @@
         <remap from="parent" to="earth"/>
         <remap from="child" to="moon"/>
         <param name="distance_to_parent"  value="0.2" />
-        <param name="period"  value="0.07" />
+        <param name="period"  value="0.7" />
     </node>
 </launch>

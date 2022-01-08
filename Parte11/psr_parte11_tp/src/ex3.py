@@ -10,7 +10,8 @@ import tf2_ros
 import geometry_msgs.msg
 import turtlesim.msg
 
-if __name__ == '__main__':
+
+def main():
     rospy.init_node('circular_frame')
     br = tf2_ros.TransformBroadcaster()
     t = geometry_msgs.msg.TransformStamped()
@@ -29,18 +30,22 @@ if __name__ == '__main__':
         t.header.stamp = rospy.Time.now()
 
         # Sun to mercury
-        rho = 0.387
         t.header.frame_id = rospy.remap_name('parent')
         t.child_frame_id = rospy.remap_name('child')
         t.transform.translation.x = distance_to_parent * math.cos(alfa)
         t.transform.translation.y = distance_to_parent * math.sin(alfa)
-        q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
+        t.transform.translation.z = 0.0
         t.transform.rotation.w = 1
         br.sendTransform(t)          # Send transformation
-
-        br.sendTransform(t)  # Send transformation
 
         #slepp
         rate.sleep()
 
     rospy.spin()
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except rospy.ROSInterruptException:
+        pass

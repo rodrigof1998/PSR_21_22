@@ -6,7 +6,8 @@ import tf2_ros
 import geometry_msgs.msg
 import turtlesim.srv
 
-if __name__ == '__main__':
+
+def main():
     rospy.init_node('mercury_to_moon')
 
     tfBuffer = tf2_ros.Buffer()
@@ -16,10 +17,17 @@ if __name__ == '__main__':
     while not rospy.is_shutdown():
         try:
             trans = tfBuffer.lookup_transform('mercury', 'moon', rospy.Time())
-            print(trans.transform.translation)
+            distance = math.sqrt(trans.transform.translation.x**2 + trans.transform.translation.y**2)
+            rospy.loginfo('Distance from mercury to moon is ' + str(distance))
         except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
             rospy.logwarn('Could not find transformation from mercury to moon')
             rate.sleep()
             continue
-
         rate.sleep()
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except rospy.ROSInterruptException:
+        pass
