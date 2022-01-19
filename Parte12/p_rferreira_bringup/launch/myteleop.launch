@@ -1,0 +1,15 @@
+<launch>
+    <arg name="player_name" default="p_rferreira"/>
+
+    <!-- Use a player_name namespace to get unique topic names, services, parameters, etc.-->
+    <group ns="$(arg player_name)">
+
+      <!-- turtlebot3_teleop_key already has its own built in velocity smoother -->
+      <node pkg="p_rferreira_bringup" type="myteleop.py" name="myteleop"  output="screen">
+<!--        <param name="~default_topic" value="/$(arg player_name)/differential_drive_controller/cmd_vel"></param>-->
+        <remap from="/cmd_vel" to="/$(arg player_name)/cmd_vel"/>
+      </node>
+
+    </group>
+
+</launch>
