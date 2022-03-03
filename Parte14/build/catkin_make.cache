@@ -1,0 +1,2 @@
+
+-DCATKIN_DEVEL_PREFIX=/home/rodrigo/catkin_ws/src/PSR_21_22/Parte14/devel -DCMAKE_INSTALL_PREFIX=/home/rodrigo/catkin_ws/src/PSR_21_22/Parte14/install -G Unix Makefiles

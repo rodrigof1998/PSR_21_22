@@ -6,7 +6,7 @@
 
   <gazebo reference="base_link">
 <!--    <material>Gazebo/DarkGrey</material>-->
-      <material>Gazebo/Yellow</material>
+      <material>Gazebo/${player_color}</material>
   </gazebo>
 
   <gazebo reference="wheel_left_link">
